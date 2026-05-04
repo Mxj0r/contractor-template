@@ -866,6 +866,121 @@
     }
 
     /* ═══════════════════════════════════════════════════
+       TESTIMONIALS CTA
+    ═══════════════════════════════════════════════════ */
+    .testimonials-cta {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .review-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+    }
+    .review-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+    /* ═══════════════════════════════════════════════════
+       ROLLING GALLERY
+    ═══════════════════════════════════════════════════ */
+    .gallery {
+      background: var(--color-surface-alt);
+      padding: var(--section-pad) 0;
+      overflow: hidden;
+    }
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .gallery-track-wrap {
+      overflow: hidden;
+      width: 100%;
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .gallery-track {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      animation: gallery-roll 40s linear infinite;
+      will-change: transform;
+    }
+    .gallery-track:hover { animation-play-state: paused; }
+    @keyframes gallery-roll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gallery-track { animation: none; }
+    }
+    .gallery-item {
+      flex-shrink: 0;
+      width: 320px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      background: var(--color-border);
+    }
+    .gallery-item img {
+      width: 320px;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 400ms ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 16px 14px;
+      background: linear-gradient(to top, rgba(15,29,40,0.85) 0%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .gallery-caption-title {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .gallery-caption-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+    }
+    .gallery-dots {
+      display: none;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .gallery-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-border);
+      cursor: pointer;
+      transition: background var(--transition-fast);
+    }
+    .gallery-dot.active { background: var(--color-accent); }
+
+    @media (max-width: 768px) {
+      .gallery-item { width: 260px; }
+      .gallery-item img { width: 260px; height: 180px; }
+      .gallery-track { animation-duration: 28s; }
+    }
+
+    /* ═══════════════════════════════════════════════════
        RESPONSIVE
     ═══════════════════════════════════════════════════ */
     @media (max-width: 1024px) {
@@ -999,6 +1114,133 @@
       </div>
     </div>
   </div>
+
+  <!-- ═══ GALLERY ═══════════════════════════════════════ -->
+  <section class="gallery" aria-label="Work gallery">
+    <div class="gallery-header">
+      <span class="eyebrow reveal">Our Work</span>
+      <h2 class="reveal" style="margin-top:12px">Jobs We've Proudly<br>Finished</h2>
+    </div>
+    <div class="gallery-track-wrap">
+      <div class="gallery-track" id="galleryTrack">
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery1/480/360" alt="Plumbing installation project — copper pipe fitting" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Full Re-Pipe</span>
+            <span class="gallery-caption-sub">Cedar Park, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery2/480/360" alt="HVAC unit installation in residential home" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Central AC Install</span>
+            <span class="gallery-caption-sub">Round Rock, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery3/480/360" alt="Electrical panel upgrade project" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Panel Upgrade</span>
+            <span class="gallery-caption-sub">Austin, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery4/480/360" alt="Water heater installation in utility room" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Tankless Water Heater</span>
+            <span class="gallery-caption-sub">Pflugerville, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery5/480/360" alt="Drain cleaning and sewer line repair" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Sewer Line Repair</span>
+            <span class="gallery-caption-sub">Leander, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery6/480/360" alt="EV charger installation in garage" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">EV Charger Setup</span>
+            <span class="gallery-caption-sub">Austin, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery7/480/360" alt="Commercial HVAC rooftop unit" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Commercial HVAC</span>
+            <span class="gallery-caption-sub">Round Rock, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery8/480/360" alt="Bathroom plumbing fixture installation" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Bathroom Re-Plumb</span>
+            <span class="gallery-caption-sub">Cedar Park, TX</span>
+          </div>
+        </div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery1/480/360" alt="Plumbing installation project — copper pipe fitting" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Full Re-Pipe</span>
+            <span class="gallery-caption-sub">Cedar Park, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery2/480/360" alt="HVAC unit installation in residential home" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Central AC Install</span>
+            <span class="gallery-caption-sub">Round Rock, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery3/480/360" alt="Electrical panel upgrade project" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Panel Upgrade</span>
+            <span class="gallery-caption-sub">Austin, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery4/480/360" alt="Water heater installation in utility room" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Tankless Water Heater</span>
+            <span class="gallery-caption-sub">Pflugerville, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery5/480/360" alt="Drain cleaning and sewer line repair" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Sewer Line Repair</span>
+            <span class="gallery-caption-sub">Leander, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery6/480/360" alt="EV charger installation in garage" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">EV Charger Setup</span>
+            <span class="gallery-caption-sub">Austin, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery7/480/360" alt="Commercial HVAC rooftop unit" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Commercial HVAC</span>
+            <span class="gallery-caption-sub">Round Rock, TX</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/gallery8/480/360" alt="Bathroom plumbing fixture installation" width="480" height="360" loading="lazy">
+          <div class="gallery-caption">
+            <span class="gallery-caption-title">Bathroom Re-Plumb</span>
+            <span class="gallery-caption-sub">Cedar Park, TX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Gallery dots -->
+    <div class="gallery-dots" id="galleryDots"></div>
+  </section>
 
   <!-- ═══ SERVICES ═══════════════════════════════════════ -->
   <section class="services" id="services">
@@ -1177,10 +1419,20 @@
         </article>
 
       </div>
+      <div class="testimonials-cta reveal">
+        <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" class="btn btn-outline review-btn">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 1l2.1 4.5H16l-3.7 2.7 1.4 4.5L9 10.2l-4.7 2.5 1.4-4.5L2 5.5h4.9z"/></svg>
+          Leave a Google Review
+        </a>
+        <a href="https://www.yelp.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline review-btn">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="8"/><path d="M9 5v4l2.5 2.5"/></svg>
+          Review on Yelp
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- ═══ METRICS ═══════════════════════════════════════ -->
+  <!-- ═══ GALLERY ═══════════════════════════════════════ -->
   <section class="metrics">
     <div class="container">
       <div class="metrics-grid">
@@ -1330,6 +1582,42 @@
       el.style.transitionDelay = `${i * 60}ms`;
       revealIO.observe(el);
     });
+
+    // ── Gallery ─────────────────────────────────────────
+    (function initGallery() {
+      const track   = document.getElementById('galleryTrack');
+      const dotsWrap = document.getElementById('galleryDots');
+      if (!track || !dotsWrap) return;
+
+      const ITEMS   = 8;   // unique items (one full set)
+      const itemW   = 320 + 16; // width + gap in px
+
+      // Build dots
+      for (let i = 0; i < ITEMS; i++) {
+        const d = document.createElement('button');
+        d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to gallery item ' + (i + 1));
+        d.addEventListener('click', () => scrollToItem(i));
+        dotsWrap.appendChild(d);
+      }
+      const dots = [...dotsWrap.querySelectorAll('.gallery-dot')];
+
+      function scrollToItem(idx) {
+        const target = idx * itemW;
+        track.style.transition = 'transform 400ms ease';
+        track.style.transform = `translateX(-${target}px)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+
+      // Reset animation after it loops
+      track.addEventListener('animationiteration', () => {
+        // Don't干预 — seamless via duplicate set
+      });
+
+      // Pause on hover/touch
+      track.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
+      track.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
+    })();
 
     // ── Form handler ────────────────────────────────────
     const form      = document.getElementById('estimateForm');
