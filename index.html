@@ -532,6 +532,79 @@
     .about-benefits li svg { color: var(--color-success); flex-shrink: 0; margin-top: 2px; }
 
     /* ═══════════════════════════════════════════════════
+       SERVICE AREAS
+    ═══════════════════════════════════════════════════ */
+    .service-areas {
+      background: var(--color-bg);
+      padding: var(--section-pad) 0;
+    }
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .area-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: box-shadow var(--transition-mid), border-color var(--transition-mid);
+    }
+    .area-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-accent);
+    }
+    .area-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--color-surface-alt);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      transition: background var(--transition-fast), color var(--transition-fast);
+    }
+    .area-card:hover .area-icon {
+      background: var(--color-accent);
+      color: #fff;
+    }
+    .area-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: -0.01em;
+    }
+    .area-card p {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .areas-note {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 15px;
+      color: var(--color-text-muted);
+      font-style: italic;
+    }
+    .areas-note a {
+      color: var(--color-accent);
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    @media (max-width: 1024px) {
+      .areas-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .areas-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ═══════════════════════════════════════════════════
        TESTIMONIALS
     ═══════════════════════════════════════════════════ */
     .testimonials { background: var(--color-bg); }
@@ -1349,6 +1422,62 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICE AREAS ════════════════════════════════ -->
+  <section class="service-areas" id="areas">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow reveal">Coverage</span>
+        <h2 class="reveal" style="margin-top:12px">Serving the Greater<br>Austin Metro</h2>
+        <p class="subtext reveal" style="margin-top:16px">Fast, reliable service across Central Texas. If you're within these areas, we're already on our way.</p>
+      </div>
+      <div class="areas-grid">
+        <div class="area-card reveal">
+          <div class="area-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2C7.2 2 5 4.2 5 7c0 4 5 10 5 10s5-6 5-10c0-2.8-2.2-5-5-5z"/><circle cx="10" cy="7" r="2"/></svg>
+          </div>
+          <h3>Austin</h3>
+          <p>Downtown, East Austin, South Austin, North Austin, West Austin &amp; Lakeway</p>
+        </div>
+        <div class="area-card reveal">
+          <div class="area-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2C7.2 2 5 4.2 5 7c0 4 5 10 5 10s5-6 5-10c0-2.8-2.2-5-5-5z"/><circle cx="10" cy="7" r="2"/></svg>
+          </div>
+          <h3>Round Rock</h3>
+          <p>Old Town, Forest Creek, Teravista, Brushy Creek &amp; Hutto</p>
+        </div>
+        <div class="area-card reveal">
+          <div class="area-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2C7.2 2 5 4.2 5 7c0 4 5 10 5 10s5-6 5-10c0-2.8-2.2-5-5-5z"/><circle cx="10" cy="7" r="2"/></svg>
+          </div>
+          <h3>Cedar Park</h3>
+          <p>Cedar Park Town Center, Lakeline, Volente, Leander &amp; Jonestown</p>
+        </div>
+        <div class="area-card reveal">
+          <div class="area-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2C7.2 2 5 4.2 5 7c0 4 5 10 5 10s5-6 5-10c0-2.8-2.2-5-5-5z"/><circle cx="10" cy="7" r="2"/></svg>
+          </div>
+          <h3>Pflugerville</h3>
+          <p>Pflugerville, Dessau, Mooreville, Windeck &amp; New Braunfels</p>
+        </div>
+        <div class="area-card reveal">
+          <div class="area-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2C7.2 2 5 4.2 5 7c0 4 5 10 5 10s5-6 5-10c0-2.8-2.2-5-5-5z"/><circle cx="10" cy="7" r="2"/></svg>
+          </div>
+          <h3>San Marcos</h3>
+          <p>San Marcos, Kyle, Buda, Uhland &amp; Maxwell</p>
+        </div>
+        <div class="area-card reveal">
+          <div class="area-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2C7.2 2 5 4.2 5 7c0 4 5 10 5 10s5-6 5-10c0-2.8-2.2-5-5-5z"/><circle cx="10" cy="7" r="2"/></svg>
+          </div>
+          <h3>Georgetown</h3>
+          <p>Georgetown, Sun City, Serenada, Weir &amp; Bartlett</p>
+        </div>
+      </div>
+      <p class="areas-note reveal">Not in one of these areas? Give us a call — if we can get there, we will.</p>
     </div>
   </section>
 
